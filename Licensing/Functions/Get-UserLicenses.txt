@@ -1,0 +1,4 @@
+function Get-UserLicenses {
+    param($UPN)
+    Get-MgUserLicenseDetail -UserId $UPN
+}

@@ -1,0 +1,1 @@
+Get-Team | Where {(Get-TeamUser -GroupId $_.GroupId).Count -gt 50}

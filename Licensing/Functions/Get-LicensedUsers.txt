@@ -1,0 +1,3 @@
+function Get-LicensedUsers {
+    Get-MgUser | Where {$_.AssignedLicenses.Count -gt 0}
+}

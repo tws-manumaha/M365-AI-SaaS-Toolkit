@@ -1,0 +1,5 @@
+function Get-LicenseSkus {
+    Execute-AdminAction "Get License SKUs" {
+        Get-MgSubscribedSku | Select SkuId, SkuPartNumber
+    }
+}

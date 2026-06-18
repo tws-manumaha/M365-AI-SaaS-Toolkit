@@ -1,0 +1,4 @@
+function Get-LicenseHealth {
+    Get-MgSubscribedSku |
+    Where {$_.ConsumedUnits -gt $_.PrepaidUnits.Enabled}
+}

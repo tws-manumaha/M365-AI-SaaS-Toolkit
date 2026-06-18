@@ -1,0 +1,6 @@
+function Remove-License {
+    param($UPN,$SkuId)
+    Set-MgUserLicense -UserId $UPN `
+    -AddLicenses @() `
+    -RemoveLicenses @($SkuId)
+}

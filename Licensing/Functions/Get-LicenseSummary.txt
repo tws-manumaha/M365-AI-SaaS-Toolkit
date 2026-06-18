@@ -1,0 +1,3 @@
+function Get-LicenseSummary {
+    Get-LicenseUsage
+}

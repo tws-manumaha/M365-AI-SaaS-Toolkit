@@ -1,0 +1,6 @@
+function Bulk-LicenseCheck {
+    param($Users)
+    foreach ($u in $Users) {
+        Get-UserLicenses $u
+    }
+}

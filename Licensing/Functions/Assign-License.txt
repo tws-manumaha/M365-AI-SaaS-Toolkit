@@ -1,0 +1,6 @@
+function Assign-License {
+    param($UPN,$SkuId)
+    Set-MgUserLicense -UserId $UPN `
+    -AddLicenses @{SkuId=$SkuId} `
+    -RemoveLicenses @()
+}

@@ -1,0 +1,7 @@
+function Get-AvailableLicenses {
+    Get-MgSubscribedSku |
+    Select SkuPartNumber,
+    @{Name="Available";Expression={
+        $_.PrepaidUnits.Enabled - $_.ConsumedUnits
+}}
+}

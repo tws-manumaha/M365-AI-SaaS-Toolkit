@@ -1,0 +1,4 @@
+function Detect-LicenseOveruse {
+    Get-MgSubscribedSku |
+    Where {$_.ConsumedUnits -gt $_.PrepaidUnits.Enabled}
+}

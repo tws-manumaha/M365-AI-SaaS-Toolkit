@@ -1,0 +1,1 @@
+Get-Team | Export-Csv ../logs/teams.csv -NoTypeInformation

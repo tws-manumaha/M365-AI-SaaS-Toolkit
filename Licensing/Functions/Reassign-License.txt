@@ -1,0 +1,6 @@
+function Reassign-License {
+    param($UPN,$OldSku,$NewSku)
+
+    Remove-License $UPN $OldSku
+    Assign-License $UPN $NewSku
+}

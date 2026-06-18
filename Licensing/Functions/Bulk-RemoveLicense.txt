@@ -1,0 +1,6 @@
+function Bulk-RemoveLicense {
+    param($Users,$SkuId)
+    foreach ($u in $Users) {
+        Remove-License $u $SkuId
+    }
+}

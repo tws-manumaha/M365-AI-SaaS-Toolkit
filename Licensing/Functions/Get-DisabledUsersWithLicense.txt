@@ -1,0 +1,7 @@
+function Get-DisabledUsersWithLicense {
+    Get-MgUser |
+    Where {
+        $_.AccountEnabled -eq $false -and
+        $_.AssignedLicenses.Count -gt 0
+    }
+}

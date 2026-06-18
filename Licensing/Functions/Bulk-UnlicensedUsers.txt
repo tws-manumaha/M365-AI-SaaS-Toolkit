@@ -1,0 +1,3 @@
+function Bulk-UnlicensedUsers {
+    Get-UnlicensedUsers
+}

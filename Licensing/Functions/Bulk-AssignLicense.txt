@@ -1,0 +1,6 @@
+function Bulk-AssignLicense {
+    param($Users,$SkuId)
+    foreach ($u in $Users) {
+        Assign-License $u $SkuId
+    }
+}

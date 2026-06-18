@@ -1,0 +1,4 @@
+function Get-LicenseDetails {
+    param($SkuId)
+    Get-MgSubscribedSku | Where {$_.SkuId -eq $SkuId}
+}

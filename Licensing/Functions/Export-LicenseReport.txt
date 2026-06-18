@@ -1,0 +1,3 @@
+function Export-LicenseReport {
+    Get-MgSubscribedSku | Export-Csv "logs/license-report.csv"
+}

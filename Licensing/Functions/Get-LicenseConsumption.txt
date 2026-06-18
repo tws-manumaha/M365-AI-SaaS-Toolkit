@@ -1,0 +1,3 @@
+function Get-LicenseConsumption {
+    Get-MgSubscribedSku | Select SkuPartNumber, ConsumedUnits
+}

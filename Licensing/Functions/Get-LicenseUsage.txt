@@ -1,0 +1,5 @@
+function Get-LicenseUsage {
+    Execute-AdminAction "License Usage" {
+        Get-MgSubscribedSku | Select SkuPartNumber, ConsumedUnits
+    }
+}

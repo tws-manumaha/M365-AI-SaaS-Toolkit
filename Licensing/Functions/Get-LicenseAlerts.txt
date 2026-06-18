@@ -1,0 +1,6 @@
+function Get-LicenseAlerts {
+    Get-MgSubscribedSku |
+    Where {
+        $_.ConsumedUnits -gt ($_.PrepaidUnits.Enabled * 0.9)
+    }
+}

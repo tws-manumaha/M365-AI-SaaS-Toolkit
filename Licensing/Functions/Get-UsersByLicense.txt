@@ -1,0 +1,7 @@
+function Get-UsersByLicense {
+    param($SkuId)
+
+    Get-MgUser | Where {
+        $_.AssignedLicenses.SkuId -contains $SkuId
+    }
+}

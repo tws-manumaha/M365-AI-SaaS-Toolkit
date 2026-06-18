@@ -1,0 +1,6 @@
+function Check-LicenseAvailability {
+    param($SkuId)
+    Get-MgSubscribedSku |
+    Where {$_.SkuId -eq $SkuId} |
+    Select PrepaidUnits, ConsumedUnits
+}
