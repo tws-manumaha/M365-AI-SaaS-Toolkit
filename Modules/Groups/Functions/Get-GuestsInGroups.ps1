@@ -1,0 +1,1 @@
+Get-MgGroupMember | Where {$_.UserType -eq "Guest"}

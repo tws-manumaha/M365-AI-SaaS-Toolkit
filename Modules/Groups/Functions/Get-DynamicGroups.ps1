@@ -1,0 +1,1 @@
+Get-MgGroup | Where {$_.GroupTypes -contains "DynamicMembership"}

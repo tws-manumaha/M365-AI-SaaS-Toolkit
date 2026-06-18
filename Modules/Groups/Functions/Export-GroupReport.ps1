@@ -1,0 +1,1 @@
+Get-MgGroup | Export-Csv ../logs/groups.csv -NoTypeInformation

@@ -1,0 +1,1 @@
+Get-MgGroup | Select DisplayName,GroupTypes

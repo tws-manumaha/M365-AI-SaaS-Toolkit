@@ -1,0 +1,1 @@
+Get-MailboxStatistics | Where {$_.TotalItemSize -gt 1GB}

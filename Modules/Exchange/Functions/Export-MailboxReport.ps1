@@ -1,0 +1,1 @@
+Get-Mailbox | Export-Csv ../logs/mailboxes.csv -NoTypeInformation

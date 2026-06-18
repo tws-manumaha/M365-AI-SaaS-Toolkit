@@ -1,0 +1,1 @@
+Get-MgGroup | Where {$_.SecurityEnabled -eq $true}

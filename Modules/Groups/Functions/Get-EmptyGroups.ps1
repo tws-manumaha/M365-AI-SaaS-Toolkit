@@ -1,0 +1,1 @@
+Get-MgGroup | Where {(Get-MgGroupMember -GroupId $_.Id).Count -eq 0}
