@@ -1,0 +1,1 @@
+Get-SPOSite | Export-Csv ../logs/sites.csv -NoTypeInformation

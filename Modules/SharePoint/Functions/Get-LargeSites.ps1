@@ -1,0 +1,1 @@
+Get-SPOSite | Where {$_.StorageUsageCurrent -gt 1000}
