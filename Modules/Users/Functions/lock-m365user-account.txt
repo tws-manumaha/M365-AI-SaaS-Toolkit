@@ -1,0 +1,4 @@
+function Lock-User {
+    param($UPN)
+    Disable-M365User $UPN
+}

@@ -1,0 +1,7 @@
+function Bulk-DisableUsers {
+    param($Users)
+
+    foreach ($u in $Users) {
+        Disable-M365User $u
+    }
+}

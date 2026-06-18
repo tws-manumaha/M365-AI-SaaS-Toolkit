@@ -1,0 +1,7 @@
+function Update-UserProfile {
+    param($UPN,$Title)
+
+    Execute-AdminAction "Update Profile" {
+        Update-MgUser -UserId $UPN -JobTitle $Title
+    }
+}

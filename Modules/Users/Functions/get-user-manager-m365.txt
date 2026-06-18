@@ -1,0 +1,4 @@
+function Get-UserManager {
+    param($UPN)
+    Get-MgUserManager -UserId $UPN
+}

@@ -1,0 +1,7 @@
+function Check-AccountStatus {
+    param($UPN)
+
+    Execute-AdminAction "Check Status" {
+        Get-MgUser -UserId $UPN | Select AccountEnabled
+    }
+}

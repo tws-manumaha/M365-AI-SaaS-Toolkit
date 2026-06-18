@@ -1,0 +1,4 @@
+function Add-Alias {
+    param($UPN,$Alias)
+    Set-Mailbox $UPN -EmailAddresses @{Add=$Alias}
+}

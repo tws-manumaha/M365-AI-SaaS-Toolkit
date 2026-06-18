@@ -1,0 +1,7 @@
+function Bulk-DeleteUsers {
+    param($Users)
+
+    foreach ($u in $Users) {
+        Remove-M365User $u
+    }
+}

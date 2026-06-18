@@ -1,0 +1,5 @@
+function Get-M365Users {
+    Execute-AdminAction "Get Users" {
+        Get-MgUser -All | Select DisplayName,UserPrincipalName
+    }
+}

@@ -1,0 +1,7 @@
+function Bulk-EnableUsers {
+    param($Users)
+
+    foreach ($u in $Users) {
+        Enable-M365User $u
+    }
+}

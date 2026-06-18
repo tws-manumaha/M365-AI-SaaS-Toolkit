@@ -1,0 +1,83 @@
+. "$PSScriptRoot/Users.ps1"
+
+while ($true) {
+
+Write-Host "`n==== USERS MENU ===="
+Write-Host "1. Get Users"
+Write-Host "2. Find User"
+Write-Host "3. Create User"
+Write-Host "4. Delete User"
+Write-Host "5. Disable User"
+Write-Host "6. Enable User"
+Write-Host "7. Get User Details"
+Write-Host "8. Update Profile"
+Write-Host "9. Reset Password"
+Write-Host "10. Force Password Reset"
+Write-Host "11. Lock User"
+Write-Host "12. Unlock User"
+Write-Host "13. Check Status"
+Write-Host "14. Export Users"
+Write-Host "15. Active Users"
+Write-Host "16. Disabled Users"
+Write-Host "17. Unlicensed Users"
+Write-Host "18. New Users"
+Write-Host "19. Bulk Disable"
+Write-Host "20. Bulk Enable"
+Write-Host "21. Bulk Reset Password"
+Write-Host "22. Bulk Delete"
+Write-Host "23. Bulk Create"
+Write-Host "24. Get Manager"
+Write-Host "25. Set Manager"
+Write-Host "26. Get User Groups"
+Write-Host "27. Get Sign-in Logs"
+Write-Host "28. Revoke Sessions"
+Write-Host "29. Add Alias"
+Write-Host "30. Remove Alias"
+Write-Host "0. Exit"
+
+$choice = Read-Host "Enter choice"
+
+switch ($choice) {
+
+"1" { Get-M365Users }
+"2" { $n=Read-Host "Name"; Find-M365User $n }
+"3" {
+ $n=Read-Host "Name"
+ $u=Read-Host "UPN"
+ $p=Read-Host "Password"
+ New-M365User $n $u $p
+}
+"4" { $u=Read-Host "UPN"; Remove-M365User $u }
+"5" { $u=Read-Host "UPN"; Disable-M365User $u }
+"6" { $u=Read-Host "UPN"; Enable-M365User $u }
+"7" { $u=Read-Host "UPN"; Get-UserDetails $u }
+"8" { $u=Read-Host "UPN"; $t=Read-Host "Title"; Update-UserProfile $u $t }
+"9" { $u=Read-Host "UPN"; Reset-M365Password $u }
+"10" { $u=Read-Host "UPN"; Force-PasswordReset $u }
+"11" { $u=Read-Host "UPN"; Lock-User $u }
+"12" { $u=Read-Host "UPN"; Unlock-User $u }
+"13" { $u=Read-Host "UPN"; Check-AccountStatus $u }
+"14" { Export-M365Users }
+"15" { Get-ActiveUsers }
+"16" { Get-DisabledUsers }
+"17" { Get-UnlicensedUsers }
+"18" { Get-NewUsers }
+"19" { Write-Host "Manual list required"; }
+"20" { Write-Host "Manual list required"; }
+"21" { Write-Host "Manual list required"; }
+"22" { Write-Host "Manual list required"; }
+"23" { Write-Host "Manual list required"; }
+"24" { $u=Read-Host "UPN"; Get-UserManager $u }
+"25" { Write-Host "Not implemented yet" }
+"26" { $u=Read-Host "UPN"; Get-UserGroups $u }
+"27" { Get-UserSignIn }
+"28" { $u=Read-Host "UPN"; Revoke-Sessions $u }
+"29" { $u=Read-Host "UPN"; $a=Read-Host "Alias"; Add-Alias $u $a }
+"30" { $u=Read-Host "UPN"; $a=Read-Host "Alias"; Remove-Alias $u $a }
+"0" { break }
+
+default { Write-Host "Invalid choice" }
+
+}
+
+}

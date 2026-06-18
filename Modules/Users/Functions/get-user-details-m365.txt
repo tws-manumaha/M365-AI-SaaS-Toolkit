@@ -1,0 +1,8 @@
+function Get-UserDetails {
+    param($UPN)
+
+    Execute-AdminAction "User Details" {
+        Get-MgUser -UserId $UPN
+    }
+}
+``

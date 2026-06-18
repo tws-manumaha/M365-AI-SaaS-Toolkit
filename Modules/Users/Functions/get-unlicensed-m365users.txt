@@ -1,0 +1,4 @@
+function Get-UnlicensedUsers {
+    Get-MgUser | Where {$_.AssignedLicenses.Count -eq 0}
+}
+``

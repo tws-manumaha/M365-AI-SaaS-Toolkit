@@ -1,0 +1,3 @@
+function Get-ActiveUsers {
+    Get-MgUser -All | Where {$_.AccountEnabled -eq $true}
+}

@@ -1,0 +1,4 @@
+function Unlock-User {
+    param($UPN)
+    Enable-M365User $UPN
+}

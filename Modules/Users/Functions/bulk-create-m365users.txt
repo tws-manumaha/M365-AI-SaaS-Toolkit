@@ -1,0 +1,7 @@
+function Bulk-CreateUsers {
+    param($List)
+
+    foreach ($u in $List) {
+        New-M365User $u.Name $u.UPN $u.Password
+    }
+}

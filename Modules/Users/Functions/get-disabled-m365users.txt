@@ -1,0 +1,3 @@
+function Get-DisabledUsers {
+    Get-MgUser -All | Where {$_.AccountEnabled -eq $false}
+}

@@ -1,0 +1,4 @@
+function Revoke-Sessions {
+    param($UPN)
+    Invoke-MgInvalidateUserRefreshToken -UserId $UPN
+}

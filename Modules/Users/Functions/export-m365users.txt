@@ -1,0 +1,5 @@
+function Export-M365Users {
+    Execute-AdminAction "Export Users" {
+        Get-MgUser -All | Export-Csv "logs/users.csv"
+    }
+}

@@ -1,0 +1,4 @@
+function Get-UserGroups {
+    param($UPN)
+    Get-MgUserMemberOf -UserId $UPN
+}

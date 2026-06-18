@@ -1,0 +1,3 @@
+function Get-NewUsers {
+    Get-MgUser | Where {$_.CreatedDateTime -gt (Get-Date).AddDays(-7)}
+}

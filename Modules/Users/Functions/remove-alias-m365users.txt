@@ -1,0 +1,4 @@
+function Remove-Alias {
+    param($UPN,$Alias)
+    Set-Mailbox $UPN -EmailAddresses @{Remove=$Alias}
+}
