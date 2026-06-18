@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>M365 Platform</title>
+
+<style>
+body { font-family: Arial; margin:0; }
+
+header {
+    background:#111;
+    color:white;
+    padding:15px;
+}
+
+.container {
+    display:flex;
+}
+
+.sidebar {
+    width:220px;
+    background:#222;
+    color:white;
+    padding:10px;
+}
+
+.main {
+    flex:1;
+    padding:15px;
+}
+
+input {
+    width:100%;
+    padding:8px;
+    margin:5px 0;
+}
+
+button {
+    margin:5px;
+    padding:8px;
+    cursor:pointer;
+}
+
+.box {
+    background:black;
+    color:lime;
+    height:200px;
+    overflow:auto;
+    padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✅ LOGIN SCREEN -->
+<div id="loginBox">
+
+<h2>Login</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+
+<!-- ✅ MAIN APP -->
+<div id="app" style="display:none;">
+
+<header>
+🔥 M365 Admin Platform
+<button onclick="logout()">Logout</button>
+</header>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h3>Users Module</h3>
+
+<button onclick="getUsers()">Get Users</button>
+<button onclick="disableUser()">Disable User</button>
+
+</div>
+
+
+<!-- MAIN PANEL -->
+<div class="main">
+
+<h3>Output</h3>
+<div id="output" class="box"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+let token = '';
+
+
+// ✅ LOGIN
+function login(){
+
+fetch('/api/auth/login',{
+method:'POST',
+headers:{'Content-Type':'application/json'},
+body:JSON.stringify({
+username:username.value,
+password:password.value
+})
+})
+.then(r=>r.json())
+.then(d=>{
+
+if(!d.success){
+alert("Login failed");
+return;
+}
+
+token = d.token;
+
+loginBox.style.display="none";
+app.style.display="block";
+});
+}
+
+
+// ✅ LOGOUT
+function logout(){
+
+token='';
+
+loginBox.style.display="block";
+app.style.display="none";
+
+}
+
+
+// ✅ GET USERS
+function getUsers(){
+
+fetch('/api/modules/users',{
+headers:{
+'Authorization':'Bearer '+token
+}
+})
+.then(r=>r.json())
+.then(d=>{
+output.innerText = JSON.stringify(d,null,2);
+});
+}
+
+
+// ✅ DISABLE USER
+function disableUser(){
+
+let upn = prompt("Enter UPN:");
+
+fetch('/api/modules/users/disable',{
+method:'POST',
+headers:{
+'Content-Type':'application/json',
+'Authorization':'Bearer '+token
+},
+body:JSON.stringify({UPN:upn})
+})
+.then(r=>r.json())
+.then(d=>{
+output.innerText = JSON.stringify(d,null,2);
+});
+}
+
+</script>
+
+</body>
+</html>

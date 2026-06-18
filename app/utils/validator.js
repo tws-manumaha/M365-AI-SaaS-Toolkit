@@ -1,0 +1,1 @@
+module.exports={sanitize:(v)=>v};
